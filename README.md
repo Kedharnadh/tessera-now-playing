@@ -12,7 +12,9 @@ permission and never reaches the internet. The keys are the ones the player says
 
 ## Set up
 
-1. Add the plugin to a screen in Tessera (**Add with a link**, the repository's URL) and let the screen build once.
+1. Add the plugin to a screen in Tessera (**Add with a link**,
+   `https://github.com/Kedharnadh/tessera-now-playing`), or pick **Now playing** from the Plugins page's Community
+   list, and let the screen build once.
 2. In **Layout**, place the **Now playing** tile from the library's Plugins group where you want it. Its size decides
    what it shows; drag the edge to make it larger. In the inspector, under **Player**, pick the `media_player` the tile
    shows and, if you like, the **Lyrics sensor** from the next steps.

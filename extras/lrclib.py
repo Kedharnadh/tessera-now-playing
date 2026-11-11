@@ -29,7 +29,7 @@ import urllib.parse
 import urllib.request
 
 API = "https://lrclib.net/api"
-UA = "Tessera-now_playing/0.1.0 (https://github.com/Kedharnadh)"
+UA = "Tessera-now_playing/0.1.0 (https://github.com/Kedharnadh/tessera-now-playing)"
 TTL_OK = 180 * 86400     # words found: half a year
 TTL_MISS = 86400         # nothing found: a day
 MAX_LINES = 40           # the screen's own buffer (now_playing.cpp, MAX_LYRIC_LINES)
