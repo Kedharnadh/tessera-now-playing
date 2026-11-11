@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "name": "English"
+  },
+  "screen": {
+    "choose": "Choose a player",
+    "unavailable": "Unavailable",
+    "off": "Off",
+    "nothing": "Nothing playing",
+    "no_lyrics": "No lyrics for this song"
+  },
+  "app": {
+    "name": "Now playing",
+    "summary": "The cover, title and artist of any media player, with keys, a seek bar and the lyrics of the song.",
+    "tile_name": "Now playing",
+    "tile_example": "The cover, title and keys of the player",
+    "card_name": "Now playing",
+    "lyrics": "Lyrics sensor",
+    "lyrics_hint": "A sensor whose lines and times attributes hold the lyrics. The README has a helper that fills it from LRCLIB. Leave it empty for no lyrics."
+  }
+}

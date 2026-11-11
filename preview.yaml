@@ -1,0 +1,80 @@
+# What tools/preview.py shows (docs/PREVIEW.md): one player playing with its words, one that has nothing on, and a
+# tile before a player is chosen. The moments count from the run, so the song is always at its first line.
+tiles:
+  - tile: player
+    name: Living room
+    entity: media_player.living_room
+    options: { lyrics: sensor.now_playing_lyrics }
+
+  - tile: player
+    name: Nothing playing
+    entity: media_player.bedroom
+    sizes: [1x1, 2x1, 2x2]
+
+  - tile: player
+    name: Choose a player
+    sizes: [1x1, 2x1, 3x2]
+
+states:
+  media_player.living_room:
+    state: playing
+    attributes:
+      media_title: Blinding Lights
+      media_artist: The Weeknd
+      media_album_name: After Hours
+      media_position: 42
+      media_duration: 200
+      media_position_updated_at: "{epoch}"
+      volume_level: 0.42
+      is_volume_muted: false
+      supported_features: 17471
+  media_player.bedroom:
+    state: idle
+    attributes:
+      volume_level: 0.2
+      is_volume_muted: false
+      supported_features: 17471
+  sensor.now_playing_lyrics:
+    state: synced
+    attributes:
+      lines:
+        - "Yeah"
+        - "I've been tryna call"
+        - "I've been on my own for long enough"
+        - "Maybe you can show me how to love, maybe"
+        - "I'm goin' through withdrawals"
+        - "You don't even have to do too much"
+        - "You can turn me on with just a touch, baby"
+        - "I look around and"
+        - "Sin City's cold and empty"
+        - "No one's around to judge me"
+        - "I can't see clearly when you're gone"
+        - "I said, ooh, I'm blinded by the lights"
+        - "No, I can't sleep until I feel your touch"
+        - "I said, ooh, I'm drowning in the night"
+        - "Oh, when I'm like this, you're the one I trust"
+        - "(Hey, hey, hey)"
+        - "I'm running out of time"
+        - "'Cause I can see the sun light up the sky"
+        - "So I hit the road in overdrive, baby, oh"
+        - "The city's cold and empty"
+        - "No one's around to judge me"
+        - "I can't see clearly when you're gone"
+        - "I said, ooh, I'm blinded by the lights"
+        - "No, I can't sleep until I feel your touch"
+        - "I said, ooh, I'm drowning in the night"
+        - "Oh, when I'm like this, you're the one I trust"
+        - "I'm just walking by to let you know"
+        - "I can never say it on the phone"
+        - "Will never let you go this time"
+        - "I said, ooh, I'm blinded by the lights"
+        - "No, I can't sleep until I feel your touch"
+      times: [0, 4.2, 9.1, 14.3, 19.6, 24.1, 28.4, 33.2, 37.5, 42.0, 46.8, 51.2, 56.4, 61.0, 65.8,
+              70.1, 73.5, 78.2, 82.6, 87.0, 90.4, 94.8, 99.2, 104.6, 109.1, 113.7, 118.0, 122.5, 126.9,
+              131.4, 136.0]
+
+cards:
+  - { card: player, entity: media_player.living_room }
+
+pictures:
+  "cover:media_player.living_room": preview/cover.jpg

@@ -1,0 +1,53 @@
+# Now playing: the album art, title and artist of any Home Assistant media player, with keys for play, pause, the
+# track and the volume. A tap opens the big card: the cover large, the transport and volume, a seek bar, and the
+# lyrics of the song with the line being sung lit, mirroring Kedharnadh/ha-lyrics-card (LRCLIB, synced or plain).
+# docs/MANIFEST.md has every field.
+id: now_playing
+version: 0.1.0
+api: "0.17"
+icon: music
+maintainer: Kedharnadh
+license: MIT
+stage: beta
+topics: [media]
+requires:
+  esphome: 2026.6.2
+boards: any
+flash_kb: 14
+
+permissions:
+  # The keys of the tile and the card. Play, pause, mute and the volume bar go through tessera::wish, which sends the
+  # same actions; the seek bar and the volume steps go as actions.
+  home_assistant_actions:
+    - media_player.media_play_pause
+    - media_player.media_previous_track
+    - media_player.media_next_track
+    - media_player.media_seek
+    - media_player.volume_set
+    - media_player.volume_up
+    - media_player.volume_down
+    - media_player.volume_mute
+
+tiles:
+  - id: player
+    name: tile_name
+    icon: music
+    sizes: { min: 1x1, max: 4x4 }
+    # The labels, up to six keys, a bar and the lyric window of a song (at most 40 lines of 48 bytes and their times).
+    memory: 2800
+    # The cover of what the player plays, through Home Assistant's own proxy (`cover:<entity>`).
+    pictures: 1
+    domains: [media_player]
+    attributes: [media_title, media_artist, media_album_name, media_position, media_duration,
+                 media_position_updated_at, volume_level, is_volume_muted, supported_features]
+    example: tile_example
+    preview: { title: "{media_title}", value: "{media_artist}" }
+    options:
+      # The helper sensor the README's LRCLIB script fills: its state says synced, plain or none, and its `lines` and
+      # `times` attributes hold the words. Leave it empty for a tile without lyrics.
+      - { id: lyrics, kind: entity, domains: [sensor], attributes: [lines, times], label: lyrics, hint: lyrics_hint }
+
+cards:
+  # The player large, opened by a tap on the tile: the cover, the title and artist, the seek bar with its times, the
+  # six keys, a volume bar and the lyric window with the line being sung lit.
+  - { id: player, name: card_name, wide: true, pictures: 1 }
